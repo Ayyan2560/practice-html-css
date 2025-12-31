@@ -1,61 +1,165 @@
+/* GLOBAL SETTINGS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #4F4F4F; overflow-x: hidden; background: #fff; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.tere-green { color: #75BF81; }
 
-.navbar {
-    padding: 18px 40px;
+/* NAVIGATION */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+.brand-logo { width: 140px; }
+.nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+.nav-links a { text-decoration: none; color: #000; font-weight: 600; font-size: 15px; }
+.help-btn { background: #75BF81; color: #fff !important; padding: 12px 30px; border-radius: 6px; }
+
+/* HERO SECTION */
+.hero { display: flex; align-items: center; padding: 60px 0; gap: 40px; }
+.hero-text { flex: 1.2; }
+.hero-image { flex: 0.8; }
+.hero-image img { width: 100%; }
+h1 { font-size: 52px; font-weight: 900; line-height: 1.1; color: #000; margin-bottom: 20px; }
+.hero-p { font-size: 18px; color: #828282; margin-bottom: 40px; max-width: 500px; }
+.download-btns { display: flex; gap: 20px; }
+
+/* CTA BAR */
+.cta-bar { background: #75BF81; padding: 40px 60px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin: 40px 0 100px; }
+.cta-bar h3 { color: #fff; font-size: 24px; max-width: 350px; }
+.cta-input-group { display: flex; gap: 15px; }
+.cta-input-group input { padding: 18px 25px; border-radius: 8px; border: none; width: 350px; font-size: 16px; }
+.cta-input-group button { background: #000; color: #fff; padding: 18px 35px; border-radius: 8px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+
+/* HOW IT WORKS */
+.section-title { text-align: center; font-size: 42px; font-weight: 900; color: #000; margin-bottom: 15px; }
+.section-subtitle { text-align: center; color: #828282; max-width: 700px; margin: 0 auto 80px; }
+.how-works-grid { display: grid; grid-template-columns: 1fr 340px 1fr; align-items: center; gap: 20px; }
+
+.left-col .step { text-align: right; margin-bottom: 120px; }
+.right-col .step { text-align: left; margin-bottom: 120px; }
+.step h4 { font-weight: 800; font-size: 20px; color: #000; margin-bottom: 10px; }
+.step p { font-size: 14px; color: #828282; }
+
+.step-num { 
+    width: 55px; height: 55px; border: 4px solid #75BF81; border-radius: 50%; 
+    display: inline-flex; align-items: center; justify-content: center; 
+    color: #75BF81; font-weight: 900; font-size: 24px; margin-bottom: 15px; 
+}
+.center-circle { 
+    background: #75BF81; width: 320px; height: 320px; border-radius: 50%; 
+    border: 15px solid #fff; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin: 0 auto; 
 }
 
-.nav-link {
-    font-weight: 500;
-    color: #000 !important;
+.dots-container { text-align: center; margin-top: -40px; margin-bottom: 100px; }
+.dot { height: 12px; width: 12px; background: #C4C4C4; border-radius: 50%; display: inline-block; margin: 0 5px; }
+.dot.active { background: #75BF81; width: 12px; }
+
+/* BENEFITS SECTION */
+.benefit-card { 
+    background: #fdfdfd; padding: 60px; border-radius: 24px; 
+    display: flex; align-items: center; gap: 60px; margin-bottom: 40px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
 }
-.nav-item{
-    align-items: end;
+.benefit-card.reverse { flex-direction: row-reverse; }
+.benefit-header { display: flex; align-items: flex-end; gap: 20px; margin-bottom: 20px; }
+.benefit-num { font-size: 80px; font-weight: 900; color: #75BF81; opacity: 0.25; line-height: 0.8; }
+.benefit-content h4 { font-size: 32px; font-weight: 900; text-transform: uppercase; color: #000; }
+.multi-line h4 { line-height: 1.1; }
+.benefit-content p { color: #828282; font-size: 18px; max-width: 480px; }
+.benefit-img img { max-width: 100%; }
+
+/* FOOTER */
+footer { padding: 80px 0 40px; border-top: 1px solid #eee; margin-top: 100px; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1.5fr 1.5fr 1fr; gap: 40px; margin-bottom: 60px; }
+.footer-col h5 { font-size: 20px; font-weight: 800; margin-bottom: 20px; color: #000; }
+.footer-col p { font-size: 14px; color: #828282; margin-bottom: 10px; }
+.footer-download { display: flex; flex-direction: column; gap: 15px; }
+.copyright { text-align: center; border-top: 1px solid #eee; padding-top: 40px; color: #75BF81; font-weight: 700; }
+
+/* MOBILE HAMBURGER */
+.menu-icon { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.menu-icon span { width: 25px; height: 3px; background: #000; transition: 0.3s; }
+/* --- FULL CLEANUP FOR SMALL PHONES --- */
+
+@media (max-width: 600px) {
+    /* 1. Page ki width fix ki aur side padding kam ki */
+    .container { padding: 0 15px !important; }
+
+    /* 2. Nav space fix */
+    nav { padding: 15px 0 !important; }
+    .brand-logo { width: 100px !important; }
+
+    /* 3. Hero Section - Jo extra jagah gher raha tha */
+    .hero {
+        flex-direction: column !important;
+        padding: 10px 0 !important; /* Top space khatam */
+        gap: 10px !important;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 26px !important; /* Heading choti aur tight */
+        line-height: 1.1 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-p {
+        font-size: 13px !important;
+        margin: 0 auto 15px !important;
+        line-height: 1.4 !important;
+        max-width: 100%;
+    }
+
+    /* 4. Buttons ko center mein chipkaya */
+    .download-btns {
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-bottom: 20px !important;
+    }
+    .download-btns img { width: 115px !important; height: auto; }
+
+    /* 5. Hero Image space fix */
+    .hero-image { margin: 0 !important; width: 100%; }
+    .hero-image img { 
+        max-width: 250px !important; 
+        margin: 0 auto; 
+        display: block;
+    }
+
+    /* 6. CTA (Input Box) Section spacing */
+    .cta-bar {
+        flex-direction: column !important;
+        padding: 20px 15px !important;
+        margin: 30px 0 !important;
+        gap: 15px !important;
+        text-align: center;
+    }
+    .cta-bar h3 { font-size: 18px !important; margin: 0 !important; }
+    .cta-input-group { width: 100% !important; gap: 10px !important; }
+    .cta-input-group input { width: 100% !important; padding: 12px !important; }
+    .cta-input-group button { width: 100% !important; padding: 12px !important; }
+
+    /* 7. How it Works - Grid fix */
+    .how-works-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .center-col { display: none !important; } /* Gola gayab mobile par */
+    .left-col .step, .right-col .step { 
+        text-align: center !important; 
+        margin-bottom: 25px !important; 
+    }
+
+    /* 8. Benefits Section - Jo bikhra hua tha */
+    .benefit-card, .benefit-card.reverse {
+        flex-direction: column !important;
+        padding: 20px 15px !important;
+        gap: 15px !important;
+        text-align: center;
+    }
+    .benefit-num { font-size: 40px !important; margin: 0 !important; opacity: 0.5; }
+    .benefit-content h4 { font-size: 20px !important; }
 }
 
-.help-btn {
-    background-color: #69c27d;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.help-btn:hover {
-    background-color: #5ab36f;
-    color: #fff;
-}
-.download-wrap {
-    display: flex;
-    gap: 20px;
-}
-
-.store-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #000;
-    color: #fff;
-    padding: 14px 26px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.store-btn img {
-    width: 24px;
-    height: auto;
-    filter: invert(1); /* icon white */
-}
-
-.store-btn:hover {
-    background: #111;
-}
-header{
-    display: flex;
-    margin-top: 20px;
-}
-h1{
-    width: 80px;
-font-style: 800px;
+/* For Extra Small Screens (iPhone SE etc) */
+@media (max-width: 380px) {
+    h1 { font-size: 22px !important; }
+    .download-btns { flex-direction: column; align-items: center; }
 }
